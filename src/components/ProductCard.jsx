@@ -2,6 +2,7 @@ import React from "react";
 import products from "../data/products";
 
 function ProductCard() {
+  const sizes = ["S", "M", "L", "XL"];
   return (
     <div className="mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
@@ -21,6 +22,18 @@ function ProductCard() {
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 {product.nombre}
               </h3>
+              <div>
+                <ul className="flex gap-4 justify-center">
+                  {sizes.map((size) => (
+                    <li
+                      key={size}
+                      className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 font-medium cursor-pointer hover:bg-blue-600 hover:text-white"
+                    >
+                      {size}
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <div className="flex justify-between items-center">
                 <span className="text-lg font-bold text-blue-600">
                   ${product.precio}
