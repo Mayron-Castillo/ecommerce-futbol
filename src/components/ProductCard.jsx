@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import products from "../data/products";
 
 function ProductCard() {
   const sizes = ["S", "M", "L", "XL"];
+  const [selectSizes, setSelectSizes] = useState({});
+
+  const handleSelect = (productId, size) => {
+    setSelectSizes((prev) => ({
+      ...prev,
+      [productId]: size,
+    }));
+  };
+
   return (
     <div className="mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
@@ -27,7 +36,12 @@ function ProductCard() {
                   {sizes.map((size) => (
                     <li
                       key={size}
-                      className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 font-medium cursor-pointer hover:bg-blue-600 hover:text-white"
+                      className={`${
+                        selectSizes[product.id] === size
+                          ? "bg-blue-700 text-white"
+                          : "bg-gray-200 text-black"
+                      } w-8 h-8 flex items-center justify-center rounded-full font-medium cursor-pointer`}
+                      onClick={() => handleSelect(product.id, size)}
                     >
                       {size}
                     </li>
