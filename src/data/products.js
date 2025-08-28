@@ -25,15 +25,15 @@ const products = [
   },
   {
     id: 5,
-    nombre: "Camiseta de Real Madrid",
-    precio: 39.99,
-    imagen: "/img/madrid.jpg",
-  },
-  {
-    id: 6,
     nombre: "Camiseta de Liverpool",
     precio: 39.99,
     imagen: "/img/liverpool.jpg",
+  },
+  {
+    id: 6,
+    nombre: "Camiseta de Real Madrid",
+    precio: 39.99,
+    imagen: "/img/madrid.jpg",
   },
   {
     id: 7,
