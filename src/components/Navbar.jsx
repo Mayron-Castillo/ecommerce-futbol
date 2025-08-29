@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Cart from "../pages/Cart";
 
 function Navbar() {
   return (
@@ -6,12 +8,12 @@ function Navbar() {
       <div className="w-11/12 mx-auto flex justify-between items-center">
         <h1 className="font-bold">Tienda de Mayron</h1>
         <div className="flex gap-8">
-          <a href="#" className="hover:text-blue-500">
+          <a href="/" className="hover:text-blue-500">
             Inicio
           </a>
-          <a href="#" className="hover:text-blue-500">
+          <Link to="/carrito" className="hover:text-blue-500">
             Carrito
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
