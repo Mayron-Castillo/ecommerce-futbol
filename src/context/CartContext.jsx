@@ -1,19 +1,24 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (product, size) => {
     setCartItems((prevItems) => {
-      // Check if the product with the same size is already in the cart
       const existingItem = prevItems.find(
         (item) => item.id === product.id && item.size === size
       );
 
       if (existingItem) {
-        // If it exists, increase the quantity
         return prevItems.map((item) =>
           item.id === product.id && item.size === size
             ? { ...item, quantity: item.quantity + 1 }
@@ -21,7 +26,6 @@ export function CartProvider({ children }) {
         );
       }
 
-      // If it's a new item, add it to the cart
       return [...prevItems, { ...product, size, quantity: 1 }];
     });
   };

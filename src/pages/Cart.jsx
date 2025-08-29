@@ -12,7 +12,7 @@ function Cart() {
 
   if (count === 0) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="w-11/12 mx-auto px-4 py-8">
         <h1 className="text-2xl font-bold mb-6">Tu carrito está vacío</h1>
         <p>No hay productos en tu carrito de compras.</p>
       </div>
@@ -20,7 +20,7 @@ function Cart() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="w-6/12 mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold mb-6 mt-10">
         Tu Carrito ({count} {count === 1 ? "producto" : "productos"})
       </h1>
@@ -41,8 +41,11 @@ function Cart() {
                 <h3 className="font-semibold">{item.nombre}</h3>
                 <p className="text-gray-600">Talla: {item.size}</p>
                 <p className="text-gray-600">Cantidad: {item.quantity}</p>
-                <p className="text-blue-600 font-semibold">
-                  ${item.precio * item.quantity}
+                <p className="text-gray-600">
+                  Precio:{" "}
+                  <span className="text-blue-600 font-semibold">
+                    ${item.precio * item.quantity}
+                  </span>
                 </p>
               </div>
             </div>
@@ -56,21 +59,21 @@ function Cart() {
         ))}
       </div>
 
-      <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+      <div className="mt-6 p-4 bg-gray-50 rounded-lg flex flex-col">
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-semibold">Total:</h2>
           <span className="text-2xl font-bold text-blue-600">
             ${total.toFixed(2)}
           </span>
         </div>
+        <button className="mt-4 w-10/12 mx-auto bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
+          Proceder al Pago
+        </button>
         <button
           onClick={clearCart}
-          className="mt-4 w-full bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600"
+          className="mt-4 w-10/12 mx-auto bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600"
         >
           Vaciar Carrito
-        </button>
-        <button className="mt-4 w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
-          Proceder al Pago
         </button>
       </div>
     </div>
