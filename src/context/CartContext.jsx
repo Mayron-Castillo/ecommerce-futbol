@@ -36,6 +36,11 @@ export function CartProvider({ children }) {
     );
   };
 
+  const handleCheckout = () => {
+    alert(`¡Compra realizada con éxito!`);
+    clearCart();
+  };
+
   const clearCart = () => {
     setCartItems([]);
   };
@@ -51,6 +56,7 @@ export function CartProvider({ children }) {
         removeFromCart,
         clearCart,
         cartCount,
+        handleCheckout,
       }}
     >
       {children}

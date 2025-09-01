@@ -2,7 +2,8 @@ import React from "react";
 import { useCart } from "../context/CartContext";
 
 function Cart() {
-  const { cartItems, removeFromCart, clearCart, cartCount } = useCart();
+  const { cartItems, removeFromCart, clearCart, cartCount, handleCheckout } =
+    useCart();
   const count = cartCount();
 
   const total = cartItems.reduce(
@@ -57,7 +58,7 @@ function Cart() {
             </div>
             <button
               onClick={() => removeFromCart(item.id, item.size)}
-              className="text-red-500 hover:text-red-700"
+              className="text-red-500 hover:text-red-700 cursor-pointer"
             >
               Eliminar
             </button>
@@ -72,7 +73,10 @@ function Cart() {
             ${total.toFixed(2)}
           </span>
         </div>
-        <button className="mt-4 w-10/12 mx-auto bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 cursor-pointer">
+        <button
+          onClick={handleCheckout}
+          className="mt-4 w-10/12 mx-auto bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 cursor-pointer"
+        >
           Proceder al Pago
         </button>
         <button
