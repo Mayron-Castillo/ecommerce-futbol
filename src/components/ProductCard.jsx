@@ -21,6 +21,11 @@ function ProductCard() {
       return;
     }
     addToCart(product, selectedSize);
+    setSelectedSizes(prev => ({
+      ...prev,
+      [product.id]: ''
+    }));
+    alert(`${product.nombre} talla ${selectedSize} ha sido agregada al carrito`);
   };
 
   return (
