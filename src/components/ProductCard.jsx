@@ -7,6 +7,7 @@ function ProductCard() {
   const { addToCart } = useCart();
   const [selectedSizes, setSelectedSizes] = useState({});
 
+  // Se encarga de seleccionar la talla del producto
   const handleSizeSelect = (productId, size) => {
     setSelectedSizes((prev) => ({
       ...prev,
@@ -14,20 +15,27 @@ function ProductCard() {
     }));
   };
 
+  // Se encarga de agregar el producto al carrito
   const handleAddToCart = (product) => {
+    // talla seleccionada del producto especifico
     const selectedSize = selectedSizes[product.id];
     if (!selectedSize) {
       alert("Por favor selecciona una talla");
       return;
     }
+    // Se llama a la función addToCart del carrito
     addToCart(product, selectedSize);
-    setSelectedSizes(prev => ({
+    // Se limpia la talla de la camiseta seleccionada, las otras no, solo la del id especifico
+    setSelectedSizes((prev) => ({
       ...prev,
-      [product.id]: ''
+      [product.id]: "",
     }));
-    alert(`${product.nombre} talla ${selectedSize} ha sido agregada al carrito`);
+    alert(
+      `${product.nombre} talla ${selectedSize} ha sido agregada al carrito`
+    );
   };
 
+  // Se muestran por pantalla las camisetas
   return (
     <div className="w-11/12 mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
@@ -48,7 +56,11 @@ function ProductCard() {
                 {product.nombre}
               </h3>
               <div className="my-2">
-                <Sizes selectedSize={selectedSizes[product.id]} onSelectSize={(size) => handleSizeSelect(product.id, size)}></Sizes>
+                {/* Se llama y se muestran las tallas para cada uno de los productos */}
+                <Sizes
+                  selectedSize={selectedSizes[product.id]}
+                  onSelectSize={(size) => handleSizeSelect(product.id, size)}
+                ></Sizes>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-lg font-bold text-blue-600">

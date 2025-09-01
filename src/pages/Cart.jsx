@@ -2,15 +2,19 @@ import React from "react";
 import { useCart } from "../context/CartContext";
 
 function Cart() {
+  // funciones que se traen del carrito
   const { cartItems, removeFromCart, clearCart, cartCount, handleCheckout } =
     useCart();
+  // conteo total de las camisetas
   const count = cartCount();
 
+  // Función para saber el precio total de la compra
   const total = cartItems.reduce(
     (sum, item) => sum + item.precio * item.quantity,
     0
   );
 
+  // Si el carrito está vacío se muestra
   if (count === 0) {
     return (
       <div className="w-full flex flex-col items-center justify-center mt-20">
@@ -57,6 +61,7 @@ function Cart() {
               </div>
             </div>
             <button
+              // Usa la función de removeFromCart, para eliminarlo del carrito
               onClick={() => removeFromCart(item.id, item.size)}
               className="text-red-500 hover:text-red-700 cursor-pointer"
             >
@@ -74,12 +79,14 @@ function Cart() {
           </span>
         </div>
         <button
+          // Usa la función para mostrar el alert y vaciar el carrito
           onClick={handleCheckout}
           className="mt-4 w-10/12 mx-auto bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 cursor-pointer"
         >
           Proceder al Pago
         </button>
         <button
+          // Usa la función para vaciar el carrito
           onClick={clearCart}
           className="mt-4 w-10/12 mx-auto bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 cursor-pointer"
         >

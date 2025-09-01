@@ -13,6 +13,7 @@ function Footer() {
             <a href="#" className="hover:text-blue-400">
               Inicio
             </a>
+            {/* Se Muestra el github y linkedin, los dos logos traídos desde el portfolio */}
             <section className="flex gap-4">
               <a href="https://github.com/Mayron-Castillo" target="_blank">
                 <svg

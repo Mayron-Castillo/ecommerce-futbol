@@ -1,3 +1,4 @@
+// Camisetas con las descripciones de cada una, id, nombre, precio y imagen
 const products = [
   {
     id: 1,
