@@ -1,12 +1,73 @@
-# React + Vite
+# ⚽ E-commerce de Camisetas de Fútbol
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+E-commerce desarrollado con React que permite a los usuarios seleecionar y añadir camisetas de fútbol de diferentes equipos, con funcionalidad de carrito de compras y selección de tallas.
 
-Currently, two official plugins are available:
+## 🚀 Características Principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Catálogo de Productos**
 
-## Expanding the ESLint configuration
+  - Visualización de camisetas con imágenes
+  - Tallas para cada producto
+  - Precio y botón para añadir producto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Carrito de Compras**
+
+  - Añadir/eliminar productos
+  - Cálculo automático del total
+  - Vaciar carrito
+  - Proceso de pago simulado
+
+- **Interfaz de Usuario**
+
+  - Diseño responsive con Tailwind CSS
+  - Indicador de cantidad de camisetas en el carrito
+
+- **Persistencia de Datos**
+  - Carrito guardado en localStorage
+  - Mantiene el estado al recargar la página
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Frontend**
+
+  - React
+  - React Router DOM
+  - Tailwind CSS
+  - Context API (para gestión del estado global del carrito)
+  - Vite
+
+- **Características Principales**
+  - Estado global con Context API
+  - Enrutamiento con React Router
+  - Diseño responsive con Tailwind CSS
+  - Persistencia de datos con localStorage
+
+## 🚀 Cómo Empezar
+
+1. **Clonar el repositorio**
+
+   ```bash
+   git clone [url-del-repositorio]
+   cd ecommerce
+   ```
+
+2. **Instalar dependencias**
+
+   ```bash
+   npm install
+   ```
+
+3. **Iniciar el servidor de desarrollo**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Abrir en el navegador**
+   ```
+   http://localhost:5173
+   ```
+
+## 👨‍💻 Autor
+
+**Mayron Castillo** - Desarrollador Frontend
